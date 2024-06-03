@@ -4,8 +4,8 @@ An Unreal(5.4) plugin to export xmind of unreal classes
 
 ## 1. Xmind 
 
-**Xmind online:**[https://docs.qq.com/mind/DSGR6TVdGUlZJenZl?mode=mind&_t=1717434876611&needShowTips=1](https://docs.qq.com/mind/DSGR6TVdGUlZJenZl?mode=mind&_t=1717434876611&needShowTips=1)
-**Xmind File:** https://github.com/wlxklyh/UEClassExport/blob/main/UEClassXmind.xmind
+**Xmind online:**[=>Click here](https://docs.qq.com/mind/DSGR6TVdGUlZJenZl?mode=mind&_t=1717434876611&needShowTips=1)
+**Xmind File:** [=>Repository file](https://github.com/wlxklyh/UEClassExport/blob/main/UEClassXmind.xmind)
 
 |Example|Picture|
 |-|-|
