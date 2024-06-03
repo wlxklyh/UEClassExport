@@ -85,6 +85,23 @@ void FUEClassExportModule::PluginButtonClicked()
 	WriteStringToFile(OutputString, UEClassInfoTxtPath);
 
 	FPlatformProcess::CreateProc(*UEClassToXmindPath, nullptr, true, false, false, nullptr, 0, nullptr, nullptr);
+	TSharedRef<SWindow> Window = SNew(SWindow)
+		.Title(FText::FromString(TEXT("UEClass Export")))
+		.SizingRule(ESizingRule::Autosized);
+
+	Window->SetContent(
+		SNew(SVerticalBox)
+		+ SVerticalBox::Slot()
+		.AutoHeight()
+		.HAlign(HAlign_Center)
+		.VAlign(VAlign_Center)
+		[
+			SNew(STextBlock)
+			.Text(FText::FromString(TEXT("See UEClassXmind.xmind")))
+		]
+	);
+
+	FSlateApplication::Get().AddWindow(Window);
 }
 
 void FUEClassExportModule::RegisterMenus()
