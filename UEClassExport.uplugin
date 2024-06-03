@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "UEClassExport",
+	"Description": "UEClassExport",
+	"Category": "Other",
+	"CreatedBy": "UEClassExport",
+	"CreatedByURL": "https://github.com/wlxklyh",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "UEClassExport",
+			"Type": "Editor",
+			"LoadingPhase": "Default"
+		}
+	]
+}

@@ -1,0 +1,3 @@
+python UEClassToXmind.py
+
+pause
