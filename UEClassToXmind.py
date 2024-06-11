@@ -2,6 +2,13 @@
 import os
 import shutil
 import xmind
+import sys
+
+# 获取命令行参数
+# sys.argv[0] 是脚本的名称，后面的元素是传递给脚本的参数
+# 例如，python script.py arg1 arg2
+# sys.argv[0] = 'script.py', sys.argv[1] = 'arg1', sys.argv[2] = 'arg2'
+arguments = sys.argv[1:]
 
 current_dir_path = os.path.dirname(os.path.abspath(__file__))
 ue_class_xmind = os.path.join(current_dir_path,"UEClassXmind.xmind")
@@ -15,6 +22,8 @@ ue_class_tree = {
 with open(ue_class_info,"r") as ue_class_file:
     lines = ue_class_file.readlines()
     for line in lines:
+        if arguments[0] not in line:
+            continue
         nodes = [node.replace('\n','') for node in line.split("->")]
         nodes.reverse()
         def insert_path(tree, nodes):
@@ -37,9 +46,31 @@ def insert_to_xmind(dict_tree, topic):
         node_topic = topic.addSubTopic()
         node_topic.setTitle(k)
         insert_to_xmind(v,node_topic)
-        
 insert_to_xmind(ue_class_tree["ue"], root_topic)
 
-
-
+import json
+json_str = json.dumps(ue_class_tree["ue"],indent=4)
+# print(json_str)
 xmind.save(xmind_instance)
+
+
+
+from graphviz import Digraph
+def create_class_diagram(class_hierarchy, dot=None, parent=None):
+    if dot is None:
+        dot = Digraph()
+
+    for child, grandchildren in class_hierarchy.items():
+        dot.node(child, shape='rectangle')  # Change node shape to rectangle
+        if parent is not None:
+            dot.edge(parent, child, dir='back')  # Change edge direction to the opposite
+        create_class_diagram(grandchildren, dot, child)
+
+    return dot
+
+dot = create_class_diagram(ue_class_tree["ue"])
+dot.render('class_diagram', format='png', cleanup=True)
+
+# Display the graph in a pop-up window
+dot.view()
+

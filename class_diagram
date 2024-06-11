@@ -1,0 +1,11 @@
+digraph {
+	Object [shape=rectangle]
+	Actor [shape=rectangle]
+	Object -> Actor [dir=back]
+	test11_C [shape=rectangle]
+	Actor -> test11_C [dir=back]
+	SKEL_test11_C [shape=rectangle]
+	Actor -> SKEL_test11_C [dir=back]
+	REINST_test11_C_0 [shape=rectangle]
+	Actor -> REINST_test11_C_0 [dir=back]
+}
